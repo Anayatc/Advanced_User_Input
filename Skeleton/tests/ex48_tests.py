@@ -49,3 +49,9 @@ def test_errors():
                           ('noun', 'princess')])
 
 
+def test_capitalization():
+    result = lexicon.scan("the The tHe thE")
+    assert_equal(result, [('stop', 'the'),
+                          ('stop', 'the'),
+                          ('stop', 'the'),
+                          ('stop', 'the')])
