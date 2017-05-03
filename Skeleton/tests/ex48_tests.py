@@ -1,5 +1,5 @@
 from nose.tools import *
-import ex48.lexicon
+from ex48 import lexicon
 
 
 def test_directions():
@@ -39,5 +39,13 @@ def test_numbers():
     result = lexicon.scan("3 91234")
     assert_equal(result, [('number', 9),
                           ('number', 9490)])
+
+
+def test_errors():
+    assert_equal(lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
+    result = lexicon.scan("bear IAS princess")
+    assert_equal(result, [('noun', 'bear'),
+                          ('error', 'IAS'),
+                          ('noun', 'princess')])
 
 
