@@ -5,20 +5,20 @@ nouns = ('door', 'bear', 'princess', 'cabinet')
 
 
 def get_tuple(word):
-    lowercased = word.lower()
+    lower_case = word.lower()
 
-    if lowercased in directions:
-        return ('direction', lowercased)
-    elif lowercased in verbs:
-        return ('verb', lowercased)
-    elif lowercased in stop_words:
-        return ('stop', lowercased)
-    elif lowercased in nouns:
-        return ('noun', lowercased)
-    elif lowercased.isdigit():
-        return ('number', int(lowercased))
+    if lower_case in directions:
+        return 'direction', lower_case
+    elif lower_case in verbs:
+        return 'verb', lower_case
+    elif lower_case in stop_words:
+        return 'stop', lower_case
+    elif lower_case in nouns:
+        return 'noun', lower_case
+    elif lower_case.isdigit():
+        return 'number', int(lower_case)
     else:
-        return ('error', word)
+        return 'error', word
 
 
 def scan(sentence):
