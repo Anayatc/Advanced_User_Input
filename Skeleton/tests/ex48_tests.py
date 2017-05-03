@@ -1,16 +1,10 @@
 from nose.tools import *
-from ex48.lexicon import
+from ex48 import lexicon
 
 
-def setup():
-    print("SETUP!")
-
-
-def teardown():
-    print("TEAR DOWN!")
-
-
-def test_basic():
-    print("I RAN!")
-
-
+def test_directions():
+    assert_equal(lexicon.scan("north"), [('direction', 'north')])
+    result = lexicon.scan("north south east")
+    assert_equal(result, [('direction', 'north'),
+                          ('direction', 'south'),
+                          ('direction', 'east')])
