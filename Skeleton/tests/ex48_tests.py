@@ -1,5 +1,5 @@
 from nose.tools import *
-import ex47
+from ex48.lexicon import lex()
 
 
 def setup():
