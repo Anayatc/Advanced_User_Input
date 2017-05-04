@@ -16,3 +16,10 @@ def test_peek():
     word_list = lexicon.scan('princess')
     assert_equal(parser.peek(word_list), 'noun')
     assert_equal(parser.peek(None), None)
+
+
+def test_match():
+    word_list = lexicon.scan('princess')
+    assert_equal(parser.match(word_list, 'noun'), ('noun', 'princess'))
+    assert_equal(parser.match(word_list, 'stop'), None)
+    assert_equal(parser.match(None, 'noun'), None)
