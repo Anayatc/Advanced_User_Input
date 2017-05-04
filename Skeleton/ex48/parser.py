@@ -1,4 +1,3 @@
-from ex48 import lexicon
 
 
 class Sentence(object):
@@ -46,3 +45,13 @@ def parse_verb(word_list):
         raise ParserError("Expected a noun or direction next.")
 
 
+def parse_subject(word_list):
+    skip(word_list, 'stop')
+    next_word = peek(word_list)
+
+    if next_word == 'noun':
+        return match(word_list, 'noun')
+    elif next_word == 'verb':
+        return ('noun', 'verb')
+    else:
+        raise ParserError("Expected a verb next.")
