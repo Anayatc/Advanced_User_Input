@@ -53,3 +53,16 @@ def test_parse_subject():
     subj = ('noun', 'bear')
     s = parser.parse_subject(word_list, subj)
     assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
+
+
+def test_parse_sentence():
+    word_list = lexicon.scan('the bear eat door')
+    s = parser.parse_sentence(word_list)
+    assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
+    word_list = lexicon.scan('in eat door')
+    s = parser.parse_sentence(word_list)
+    assert_equal(s.to_tuple(), ('player', 'eat', 1, 'door'))
+    word_list = lexicon.scan('north eat door')
+    assert_raises(parser.ParserError, parser.parse_sentence, word_list)
+
+
