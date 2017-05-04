@@ -30,3 +30,10 @@ def test_skip():
     assert_equal(word_list, [('noun', 'bear'), ('verb', 'eat'), ('noun', 'door')])
     parser.skip(word_list, 'noun')
     assert_equal(word_list, [('verb', 'eat'), ('noun', 'door')])
+
+
+def test_parse_verb():
+    word_list = lexicon.scan('it eat door')
+    assert_equal(parser.parse_verb(word_list), ('verb', 'eat'))
+    word_list = lexicon.scan('bear eat door')
+    assert_raises(parser.ParserError, parser.parse_verb, word_list)
