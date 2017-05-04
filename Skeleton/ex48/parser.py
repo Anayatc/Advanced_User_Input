@@ -10,7 +10,7 @@ class Sentence(object):
         self.object = object[1]
 
     def to_tuple(self):
-        return (self.subject, self.verb, self.number, self.object)
+        return self.subject, self.verb, self.number, self.object
 
 
 def peek(word_list):
@@ -53,7 +53,7 @@ def parse_number(word_list):
     if peek(word_list) == 'number':
         return match(word_list, 'number')
     else:
-        return ('number', 1)
+        return 'number', 1
 
 
 def parse_object(word_list):
@@ -88,3 +88,4 @@ def parse_sentence(word_list):
         return parse_subject(word_list, ('noun', 'player'))
     else:
         raise ParserError("Must start with noun or verb, not: %s" % start)
+
