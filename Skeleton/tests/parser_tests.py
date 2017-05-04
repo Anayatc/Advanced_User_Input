@@ -66,3 +66,7 @@ def test_parse_sentence():
     assert_raises(parser.ParserError, parser.parse_sentence, word_list)
 
 
+def test_unknown_words():
+    word_list = lexicon.scan('xxx the xxx bear xxx eat xxx door xxx')
+    s = parser.parse_sentence(word_list)
+    assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
