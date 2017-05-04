@@ -48,3 +48,8 @@ def test_parse_object():
     assert_raises(parser.ParserError, parser.parse_object, word_list)
 
 
+def test_parse_subject():
+    word_list = lexicon.scan('eat door')
+    subj = ('noun', 'bear')
+    s = parser.parse_subject(word_list, subj)
+    assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
