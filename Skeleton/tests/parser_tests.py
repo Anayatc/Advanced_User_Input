@@ -70,3 +70,9 @@ def test_unknown_words():
     word_list = lexicon.scan('xxx the xxx bear xxx eat xxx door xxx')
     s = parser.parse_sentence(word_list)
     assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
+
+
+def test_numbers():
+    word_list = lexicon.scan('xxx the xxx bear xxx eat xxx 5 xxx door xxx')
+    s = parser.parse_sentence(word_list)
+    assert_equal(s.to_tuple(), ('bear', 'eat', 5, 'door'))
