@@ -23,3 +23,10 @@ def test_match():
     assert_equal(parser.match(word_list, 'noun'), ('noun', 'princess'))
     assert_equal(parser.match(word_list, 'stop'), None)
     assert_equal(parser.match(None, 'noun'), None)
+
+
+def test_skip():
+    word_list = lexicon.scan('bear eat door')
+    assert_equal(word_list, [('noun', 'bear'), ('verb', 'eat'), ('noun', 'door')])
+    parser.skip(word_list, 'noun')
+    assert_equal(word_list, [('verb', 'eat'), ('noun', 'door')])
