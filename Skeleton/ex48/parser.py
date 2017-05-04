@@ -32,3 +32,9 @@ def match(word_list, expecting):
 def skip(word_list, word_type):
     while peek(word_list) == word_type:
         match(word_list, word_type)
+
+
+def parse_verb(word_list):
+    skip(word_list, 'stop')
+    next_word = peek(word_list)
+
