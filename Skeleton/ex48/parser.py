@@ -1,4 +1,5 @@
-
+class ParserError(Exception):
+    pass
 
 class Sentence(object):
 
