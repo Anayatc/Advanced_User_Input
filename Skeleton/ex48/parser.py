@@ -38,3 +38,11 @@ def parse_verb(word_list):
     skip(word_list, 'stop')
     next_word = peek(word_list)
 
+    if next_word == 'noun':
+        return match(word_list, 'noun')
+    elif next_word == 'direction':
+        return match(word_list, 'direction')
+    else:
+        raise ParserError("Expected a noun or direction next.")
+
+
