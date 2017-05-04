@@ -55,3 +55,9 @@ def parse_subject(word_list):
         return ('noun', 'verb')
     else:
         raise ParserError("Expected a verb next.")
+
+
+def parse_sentence(word_list):
+    subj = parse_subject(word_list)
+    verb = parse_verb(word_list)
+    obj = parse
