@@ -24,3 +24,6 @@ def get_tuple(word):
 def scan(sentence):
     words = sentence.split()
     return [get_tuple(word) for word in words]
+
+print(scan("go north"))
+
