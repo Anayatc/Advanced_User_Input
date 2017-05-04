@@ -37,3 +37,14 @@ def test_parse_verb():
     assert_equal(parser.parse_verb(word_list), ('verb', 'eat'))
     word_list = lexicon.scan('bear eat door')
     assert_raises(parser.ParserError, parser.parse_verb, word_list)
+
+
+def test_parse_object():
+    word_list = lexicon.scan('the door')
+    assert_equal(parser.parse_object(word_list), ('noun', 'door'))
+    word_list = lexicon.scan('the east')
+    assert_equal(parser.parse_object(word_list), ('direction', 'east'))
+    word_list = lexicon.scan('the it')
+    assert_raises(parser.ParserError, parser.parse_object, word_list)
+
+
