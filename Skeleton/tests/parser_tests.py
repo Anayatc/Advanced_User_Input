@@ -10,3 +10,9 @@ def test_sentence_obj():
     assert_equal(s.number, 1)
     assert_equal(s.object, 'door')
     assert_equal(s.to_tuple(), ('bear', 'eat', 1, 'door'))
+
+
+def test_peek():
+    word_list = lexicon.scan('princess')
+    assert_equal(parser.peek(word_list), 'noun')
+    assert_equal(parser.peek(None), None)
